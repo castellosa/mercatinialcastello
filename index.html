@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Castello del Principe</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: una sola schermata centrata, nastro di cantiere in alto e in basso */
+:root {
+  --bg: #e9e6df;
+  --fg: #1f2933;
+  --muted: #5b6670;
+  --tape: #f2b705;
+  --tape-dark: #1f2933;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181f; --fg: #eceae4; --muted: #9aa5af; --tape: #f2b705; --tape-dark: #11181f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181f; --fg: #eceae4; --muted: #9aa5af; --tape: #f2b705; --tape-dark: #11181f; color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.tape {
+  height: 28px;
+  flex: none;
+  background: repeating-linear-gradient(-45deg, var(--tape) 0 22px, var(--tape-dark) 22px 44px);
+  background-size: 62.2px 62.2px;
+  animation: slide 3s linear infinite;
+}
+@keyframes slide { to { background-position: 62.2px 0; } }
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+  padding-block: 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(3.2rem, 15vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+p.note {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+@media (prefers-reduced-motion: reduce) { .tape { animation: none; } }
+</style>
+</head>
+<body>
+<div class="tape" aria-hidden="true"></div>
+<main>
+  <p class="label">Castello del Principe &middot; Sangineto</p>
+  <h1>Lavori in corso</h1>
+  <p class="note">Stiamo preparando questa pagina. Torna a trovarci presto.</p>
+</main>
+<div class="tape" aria-hidden="true"></div>
+</body>
+</html>
