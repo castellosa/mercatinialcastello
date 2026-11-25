@@ -268,6 +268,10 @@ footer .addr { white-space: nowrap; }
   transition: transform 0.2s, background 0.2s;
 }
 .ibtn::after { content: ""; position: absolute; inset: -13px; }
+.ibtn::before { content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none; box-shadow: 0 0 0 0 rgba(255,189,89,0.5); animation: ibtn-pulse 3s ease-out infinite; }
+.ibtn svg { animation: ibtn-nod 3s ease-in-out infinite; }
+@keyframes ibtn-pulse { 0%, 55% { box-shadow: 0 0 0 0 rgba(255,189,89,0.5); } 100% { box-shadow: 0 0 0 9px rgba(255,189,89,0); } }
+@keyframes ibtn-nod { 0%, 50%, 100% { transform: scale(1); } 60% { transform: scale(1.18); } 70% { transform: scale(1); } }
 .ibtn svg { width: 11px; height: 11px; }
 .ibtn:active { transform: scale(0.9); }
 .ibtn:focus-visible { outline: 2px solid var(--hi); outline-offset: 2px; }
@@ -351,6 +355,7 @@ button.glass { font: inherit; border: 0; appearance: none; -webkit-appearance: n
 @media (max-height: 720px) { .glass.sq .sub { display: none; } nav .glass:not(.sq) { min-height: 62px; } }
 @media (max-height: 600px) { .sub { display: none; } .logo { height: 34px; } .free { font-size: 1.05rem; line-height: 1.1; padding-block: 0; } footer { line-height: 1.3; } .info { gap: 2px; } .glass { min-height: 48px; } nav .glass:not(.sq) { min-height: 50px; } footer { row-gap: 10px; } }
 @media (prefers-reduced-motion: reduce) {
+  .ibtn::before, .ibtn svg { animation: none; }
   .st i, .glass::after, .rise, .glass.rise, .go svg, .go::after, .spin, .dots i, .sk b, .sk span, .expo li.ph .lg, .expo li.ph .tx span { animation: none; }
   .sheet, .glass, .go, .pop, .pop-in { transition: none; }
 }
